@@ -1,0 +1,52 @@
+version: api.keploy.io/v1beta2
+kind: SQL
+name: mock-2-0
+spec:
+    metadata:
+        arguments: '[{ 1 10} { 2 0}]'
+        name: SQL
+        operation: QueryContext
+        query: '"SELECT id, name,  price FROM products LIMIT $1 OFFSET $2"'
+        type: SQL_DB
+    type: error
+    int: 0
+    error:
+        - nil
+---
+version: api.keploy.io/v1beta2
+kind: SQL
+name: mock-2-1
+spec:
+    metadata:
+        name: SQL
+        operation: QueryContext.Close
+        type: SQL_DB
+    type: table
+    table:
+        cols:
+            - name: id
+              type: int64
+              precision: 0
+              scale: 0
+            - name: name
+              type: string
+              precision: 0
+              scale: 0
+            - name: price
+              type: '[]uint8'
+              precision: 0
+              scale: 0
+        rows:
+            - '[`1` | `Bubbles` | `[49 50 51 46 48 48]` | ]'
+            - '[`2` | `Bubbles` | `[49 50 51 46 48 48]` | ]'
+            - '[`3` | `Bubbles` | `[49 50 51 46 48 48]` | ]'
+            - '[`4` | `Bubbles` | `[49 50 51 46 48 48]` | ]'
+            - '[`4` | `Bubbles` | `[49 50 51 46 48 48]` | ]'
+    int: 0
+    error:
+        - nil
+        - nil
+        - nil
+        - nil
+        - EOF
+        - nil

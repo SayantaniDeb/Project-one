@@ -1,0 +1,35 @@
+version: api.keploy.io/v1beta2
+kind: Http
+name: test-1
+spec:
+    metadata: {}
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: /product
+        header:
+            Accept: '*/*'
+            Content-Length: "43"
+            Content-Type: application/json
+            User-Agent: curl/7.83.0
+        body: "{\n    \"name\":\"Bubbles\", \n    \"price\": 123\n}"
+        body_type: utf-8
+    resp:
+        status_code: 201
+        header:
+            Content-Type: application/json
+        body: '{"id":4,"name":"Bubbles","price":123}'
+        body_type: utf-8
+        status_message: ""
+        proto_major: 1
+        proto_minor: 1
+    objects:
+        - type: error
+          data: H4sIAAAAAAAA/wEAAP//AAAAAAAAAAA=
+    mocks:
+        - mock-1-0
+        - mock-1-1
+    assertions:
+        noise: []
+    created: 1679823656
